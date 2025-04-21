@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics Dimension Trainer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      text-align: center;
+      padding: 30px;
+    }
+    #card {
+      background: white;
+      padding: 20px;
+      margin: auto;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .reveal { background: #4CAF50; color: white; }
+    .next { background: #2196F3; color: white; }
+  </style>
+</head>
+<body>
+  <div id="card">
+    <h2 id="quantity">Loading...</h2>
+    <p id="answer" style="visibility:hidden;"></p>
+    <button class="reveal" onclick="revealAnswer()">Reveal</button>
+    <button class="next" onclick="nextCard()">Next</button>
+  </div>
+
+  <script>
+    const cards = [
+      { q: "Force", d: "[MLT⁻²]" },
+      { q: "Energy / Work", d: "[ML²T⁻²]" },
+      { q: "Power", d: "[ML²T⁻³]" },
+      { q: "Pressure", d: "[ML⁻¹T⁻²]" },
+      { q: "Density", d: "[ML⁻³]" },
+      { q: "Acceleration", d: "[LT⁻²]" },
+      { q: "Velocity", d: "[LT⁻¹]" },
+      { q: "Momentum", d: "[MLT⁻¹]" },
+      { q: "Planck's Constant", d: "[ML²T⁻¹]" },
+      { q: "Charge", d: "[TI]" },
+      { q: "Electric Field", d: "[MLT⁻³I⁻¹]" },
+      { q: "Voltage (Potential)", d: "[ML²T⁻³I⁻¹]" },
+      { q: "Resistance", d: "[ML²T⁻³I⁻²]" },
+      { q: "Capacitance", d: "[M⁻¹L⁻²T⁴I²]" },
+      { q: "Inductance", d: "[ML²T⁻²I⁻²]" },
+      { q: "Wavelength", d: "[L]" },
+      { q: "Frequency", d: "[T⁻¹]" },
+      { q: "Gravitational Constant (G)", d: "[M⁻¹L³T⁻²]" },
+      { q: "Boltzmann Constant", d: "[ML²T⁻²K⁻¹]" },
+      { q: "Gas Constant R", d: "[ML²T⁻²K⁻¹mol⁻¹]" },
+      { q: "Stefan-Boltzmann Constant", d: "[MT⁻³K⁻⁴]" },
+      { q: "Angular Momentum", d: "[ML²T⁻¹]" },
+      { q: "Angular Acceleration", d: "[T⁻²]" },
+      { q: "Torque", d: "[ML²T⁻²]" },
+      { q: "Heat Capacity", d: "[L²T⁻²K⁻¹]" },
+      { q: "Latent Heat", d: "[L²T⁻²]" },
+      { q: "Entropy", d: "[ML²T⁻²K⁻¹]" },
+      { q: "Thermal Conductivity", d: "[MLT⁻³K⁻¹]" },
+      { q: "Mass", d: "[M]" },
+      { q: "Time", d: "[T]" },
+      { q: "Length", d: "[L]" },
+      { q: "Temperature", d: "[K]" },
+      { q: "Current", d: "[I]" },
+      { q: "Luminous Intensity", d: "[J]" },
+      { q: "Amount of Substance", d: "[mol]" },
+      { q: "Electric Flux", d: "[ML³T⁻³I⁻¹]" },
+      { q: "Magnetic Field (B)", d: "[MT⁻²I⁻¹]" },
+      { q: "Magnetic Permeability", d: "[MLT⁻²I⁻²]" },
+      { q: "Permittivity", d: "[M⁻¹L⁻³T⁴I²]" },
+      { q: "Efficiency", d: "[Dimensionless]" }
+    ];
+
+    let current = 0;
+    function revealAnswer() {
+      document.getElementById("answer").style.visibility = "visible";
+    }
+    function nextCard() {
+      current = Math.floor(Math.random() * cards.length);
+      document.getElementById("quantity").innerText = cards[current].q;
+      document.getElementById("answer").innerText = "Dimensional formula: " + cards[current].d;
+      document.getElementById("answer").style.visibility = "hidden";
+    }
+    nextCard();
+  </script>
+</body>
+</html>
